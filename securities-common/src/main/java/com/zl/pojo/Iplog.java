@@ -1,7 +1,7 @@
 package com.zl.pojo;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -9,6 +9,11 @@ import lombok.Data;
 public class Iplog implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	/**登录成功*/
+	public  static final int STATE_SUCCESS=1;
+	/**登录失败*/
+	public static final int STATE_FINAL=0;
+	
 	
 	/**
 	 *  ID       NUMBER(10) PRIMARY KEY  ,  -- id;

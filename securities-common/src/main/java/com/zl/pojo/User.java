@@ -7,6 +7,10 @@ import lombok.Data;
 @Data
 public class User	implements Serializable {
 	private static final long serialVersionUID = 1L;
+	/**前台用户*/
+	public static final int USERTYPE_NORMAL=0;
+	/**后台用户*/
+	public  static final int USERTYPE_MARAGER=1;
 	/**
 	 *  ID NUMBER(10) PRIMARY KEY,  --用户id
        celephone VARCHAR2(12) ,    --手机号
