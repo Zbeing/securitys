@@ -21,7 +21,12 @@
 <style> 
 .tpl-login-title{text-align:center} 
 </style>
+<script type="text/javascript">
+$(function(){
+	$("")
+})
 
+</script>
 <body data-type="login">
     <script src="assets/js/theme.js"></script>
     <div class="am-g tpl-g">
@@ -43,12 +48,12 @@
             <div class="tpl-login-content">
                 <div class="tpl-login-title">修改密码</div>
               </span>
-                <form action="" class="am-form" data-am-validator method="post">
+                <form action="updatePWD.html" class="am-form" data-am-validator method="post">
 								  <fieldset>
 								    <div class="am-form-group">
 								      <label for="doc-vld-name-2">原密码</label>
 								      <input type="text" id="doc-vld-name-2" minlength="3"
-								             placeholder="6 位数字的密码" required/>
+								             placeholder="6 位数字的密码" name="pwd" required/>
 								    </div>
 								
 								    <div class="am-form-group">
