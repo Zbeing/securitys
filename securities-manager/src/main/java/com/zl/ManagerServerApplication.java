@@ -3,7 +3,6 @@ package com.zl;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
@@ -25,26 +24,28 @@ import org.springframework.context.annotation.ImportResource;
 /**
  * 启动方式1
  */
-@SpringBootApplication
+//@SpringBootApplication
 
 /**
  * 启动方式2
  * 第一步:扫描所有的注解
  */
-//@ComponentScan(basePackages = "com.zl.controller,com.zl.service.impl,com.zl.component") 
+@ComponentScan(basePackages = "com.zl.controller,com.zl.service.impl") 
 /**
 *启动方式2
  * 第二步:开启自动配置注解
  */
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 
 /**
  * @ImportResource注解可以加载配置文件,包括spring的配置文件,sql语句的xml文件等等所有的配置文件
  * 以下例子中两个扫描的路径不同,
  * classpath:mapper/*Mapper.xml在resources目录下,
  * classpath*:/dao/*.xml在com/zl/dao目录下,
- * 扫描com.zl.dao包下所有的.xml文件 @ImportResource(locations = {"classpath:mapper/*Mapper.xml"})
+ * 扫描com.zl.dao包下所有的.xml文件 	
+ * @ImportResource(locations = {"classpath*:mapper/*Mapper.xml"})
  */
+
 //@ImportResource(locations = {"classpath*:mapper/*Mapper.xml"})
 //@ImportResource(locations = {"classpath*:/dao/*.xml"}) 
 
