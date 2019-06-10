@@ -1,11 +1,11 @@
 package com.zl.service.impl;
 
-
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zl.dao.IpMapper;
 import com.zl.dao.LoginMapper;
@@ -21,30 +21,33 @@ import com.zl.util.MD5;
 
 @Service("loginService")
 public class LoginServiceImpl implements ILoginService {
+		
+	  @Inject
+	  @Named("loginMapper") 
+	  private LoginMapper loginMapper;
+	  
+	  @Inject
+	  @Named("ipMapper") 
+	  private IpMapper ipMapper;
+	 
 
-	
-	@Inject
-	@Named("loginMapper")
-	private LoginMapper loginMapper;
-	@Inject
-	@Named("ipMapper")
-	private IpMapper ipMapper;
-	
 	@Override
+	@Transactional
 	public boolean login(String username, String password, String ip,int usertype) {
-		System.out.println("service");
 		// TODO Auto-generated method stub
 		Iplog iplog=new Iplog();//iplog 管理员登录日志
 		iplog.setIp(ip);
 		iplog.setLogintime(new java.util.Date());
 		iplog.setUsername(username);
 		iplog.setState(Iplog.STATE_FINAL);
-		User user =loginMapper.login(username,MD5.encode(password),usertype); 
+		User user =loginMapper.select(username,MD5.encode(password),usertype); 
 		if(user!=null) {
+			System.err.println("service3");
 			iplog.setState(Iplog.STATE_SUCCESS);
 		}
-		ipMapper.add(iplog);
+		ipMapper.addip(iplog);
 		return user!=null;
 	}
 
+	
 }

@@ -1,8 +1,9 @@
 package com.zl.dao;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zl.pojo.User;
 
-import feign.Param;
 /**
  * 
  * @author Zbeing
@@ -16,5 +17,5 @@ public interface LoginMapper {
  * @param username 
  * @return 返回一个user 对象
  */
-	User login(@Param("username")String username, @Param("pwd")String password, @Param("usertype")int usertype);
+	User select(@Param("username")String username, @Param("pwd")String password, @Param("usertype")int usertype);
 }

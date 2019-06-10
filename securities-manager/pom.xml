@@ -29,47 +29,21 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+
 		<!-- ribbon负载均衡的 eureka依赖于ribbon ,根据依赖传递,可以不用导入ribbon的依赖 -->
 		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-netflix-ribbon</artifactId> 
 			</dependency> -->
 
-		<!-- feign -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
-
-		<!-- jdbc连接池依赖 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-
-		<!-- mybatis -->
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-		</dependency>
-
-		<!-- Oracle -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-		</dependency>
-
-		<!-- 分页插件依赖 -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper-spring-boot-starter</artifactId>
-		</dependency>
-
-
-		<!-- 测试 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+		<!-- feign 因为在lending-common已经导入了 ,所以不用再导入 -->
+		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-openfeign</artifactId> 
+			</dependency> -->
 
 		<!-- spring boot start -->
 		<dependency>
@@ -84,16 +58,23 @@
 			</exclusions>
 		</dependency>
 
-		<!-- springboot-log4j -->
+		<!-- 热部署依赖 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j</artifactId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+
+
+		<!-- 测试依赖 -->
 		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
+
+		<!-- 解决异常java.lang.ClassNotFoundException: org.springframework.security.web.authentication.RememberMeServices -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
+			</dependency> -->
 	</dependencies>
 </project>
